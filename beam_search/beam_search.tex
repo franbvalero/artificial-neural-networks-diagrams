@@ -1,0 +1,85 @@
+\documentclass[border=10pt]{standalone}
+
+\usepackage[utf8]{inputenc}
+\usepackage[english]{babel}
+\usepackage{tikz}
+\usetikzlibrary{positioning, arrows.meta, fit}
+
+% Set the overall layout of the tree
+\tikzstyle{level 1}=[level distance=3.5cm, sibling distance=3.5cm]
+\tikzstyle{level 2}=[level distance=3.5cm, sibling distance=2cm]
+
+% Define styles for bags and leafs
+\tikzstyle{bag} = [text width=4em, text centered]
+\tikzstyle{end} = [circle, minimum width=3pt,fill, inner sep=0pt]
+
+
+\begin{document}
+	\begin{tikzpicture}[grow=right, sloped]
+    	\node[bag] {$t = 1$}
+        	child {
+            	edge from parent
+            	node[above] {$c_{3}$}
+            	node[below]  {$0.2$}
+        	}
+        	child {
+            	node[bag] {$t = 2$}        
+                	child {
+                    	edge from parent
+                    	node[above] {$c_{3}$}
+                    	node[below]  {$0.15$}
+                    	}
+                	child {
+                    	edge from parent
+                    	node[above] {$c_{2}$}
+                    	node[below]  {$0.15$}
+                    }
+                	child {
+                    	edge from parent
+                    	node[above] {$c_{1}$}
+                    	node[below]  {$0.10$}
+                    }
+                	child {
+                    	node[end, label=right:{$P(c_2, c_0| X) = 0.35\times0.6 = 0.21 \textnormal{ (BS)}$}] {}
+                    	edge from parent
+                    	node[above] {$\mathbf{c_{0}}$}
+                    	node[below]  {$0.60$}
+                    }
+            		edge from parent
+            	node[above] {$\mathbf{c_{2}}$}
+            	node[below]  {$0.35$}
+        	}
+        	child {
+            	edge from parent
+            	node[above] {$c_{1}$}
+            	node[below]  {$0.05$}
+        	}
+        	child{
+            	node[bag] {$t = 2$}        
+                	child {
+                    	edge from parent
+                    	node[above] {$c_{3}$}
+                    	node[below]  {$0.25$}
+                    }
+                	child {
+                    	edge from parent
+                    	node[above] {$c_{2}$}
+                    	node[below]  {$0.25$}
+                    }
+                	child {
+                    	node[end, label=right:{$P(c_0, c_1| X)= 0.5\times0.3 = 0.15 \textnormal{ (G)}$}] {}
+                    	edge from parent
+                    	node[above] {$\mathbf{c_{1}}$}
+                    	node[below]  {$0.30$}
+                    }
+                	child {
+                    	edge from parent
+                    	node[above] {$c_{0}$}
+                    	node[below]  {$0.20$}
+                    }
+            	edge from parent
+            	node[above] {$\mathbf{c_{0}}$}
+            	node[below]  {$0.5$}
+        	};
+    \end{tikzpicture}
+\end{document}
